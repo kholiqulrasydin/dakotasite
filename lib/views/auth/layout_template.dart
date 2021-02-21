@@ -8,7 +8,6 @@ import 'package:dakotawebsite/routing/auth/route_names.dart';
 import 'package:dakotawebsite/routing/auth/router.dart';
 import 'package:dakotawebsite/services/auth/api.dart';
 import 'package:dakotawebsite/services/navigation_service.dart';
-import 'package:dakotawebsite/widgets/dashboard/centered_view/centered_view.dart';
 import 'package:dakotawebsite/widgets/dashboard/side_navigation/side_navigation.dart';
 
 class ViewAuth extends StatelessWidget {
@@ -79,8 +78,8 @@ class _LayoutTemplateState extends State<LayoutTemplate> {
         appBar: sizingInformation.deviceScreenType == DeviceScreenType.mobile || sizingInformation.deviceScreenType == DeviceScreenType.tablet ? dashboardAppBar() : null,
         drawer: sizingInformation.deviceScreenType == DeviceScreenType.mobile || sizingInformation.deviceScreenType == DeviceScreenType.tablet ? dashboardDrawer() : null,
         backgroundColor: Colors.white,
-        body: CenteredView(
-          child: Row(
+        body:Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Container(
                 child: sizingInformation.deviceScreenType == DeviceScreenType.desktop ? SideNavigation() : null,
@@ -94,7 +93,6 @@ class _LayoutTemplateState extends State<LayoutTemplate> {
               )
             ],
           ),
-        ),
       ),
     );
   }

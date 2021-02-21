@@ -10,10 +10,8 @@ class _ReportsMobileState extends State<ReportsMobile> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white24,
-      body: SingleChildScrollView(
-        child: Center(
-          child: Text('Ini Adalah Reports Mobile mode'),
-        ),
+      body: Center(
+        child: Text('Mohon Lihat Website Dengan Mode Desktop'),
       ),
     );
   }

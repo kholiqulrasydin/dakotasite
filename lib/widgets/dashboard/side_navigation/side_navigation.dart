@@ -154,23 +154,23 @@ class _SideNavigationState extends State<SideNavigation> {
                       : Colors.transparent,
                   title: 'Laporan'
               )),
-          InkWell(
-            onTap: () {
-              setState(() {
-                _buttonCurrentIndex = 2;
-              });
-            },
-            child: _colSingleButton(
-                icon: Icons.settings,
-                iconColor: _buttonCurrentIndex == 2
-                    ? primaryColor
-                    : Colors.black,
-                borderColor: _buttonCurrentIndex == 2
-                    ? primaryColor
-                    : Colors.transparent,
-                title: 'Pengaturan'
-            ),
-          ),
+          // InkWell(
+          //   onTap: () {
+          //     setState(() {
+          //       _buttonCurrentIndex = 2;
+          //     });
+          //   },
+          //   child: _colSingleButton(
+          //       icon: Icons.settings,
+          //       iconColor: _buttonCurrentIndex == 2
+          //           ? primaryColor
+          //           : Colors.black,
+          //       borderColor: _buttonCurrentIndex == 2
+          //           ? primaryColor
+          //           : Colors.transparent,
+          //       title: 'Pengaturan'
+          //   ),
+          // ),
         ],
       ),
     );

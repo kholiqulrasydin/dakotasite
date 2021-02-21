@@ -9,14 +9,8 @@ class _HomeDashboardMobileState extends State<HomeDashboardMobile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            children: [
-              Text('Ini Adalah Dashboard mode Mobile'),
-            ],
-          ),
-        ),
+      body: Center(
+        child: Text('Mohon Lihat Website Dengan Mode Desktop'),
       ),
     );
   }

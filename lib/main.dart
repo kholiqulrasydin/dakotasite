@@ -1,3 +1,5 @@
+import 'package:dakotawebsite/viewmodels/bantuan_usaha_view_model.dart';
+import 'package:dakotawebsite/viewmodels/report_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -24,7 +26,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => WebMode())
+        ChangeNotifierProvider(create: (context) => WebMode()),
+        ChangeNotifierProvider(create: (context) => ReportViewModel()),
+        ChangeNotifierProvider(create: (context) => BantuanUsahaViewModel())
       ],
       child: MaterialApp(
         title: 'SIMENTAN',
