@@ -11,7 +11,7 @@ class _ReportsMobileState extends State<ReportsMobile> {
     return Scaffold(
       backgroundColor: Colors.white24,
       body: Center(
-        child: Text('Mohon Lihat Website Dengan Mode Desktop'),
+        child: Text('Mohon gunakan mode desktop\natau peramban/browser di Komputer\nuntuk melihat website.'),
       ),
     );
   }

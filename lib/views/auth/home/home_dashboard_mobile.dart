@@ -10,7 +10,7 @@ class _HomeDashboardMobileState extends State<HomeDashboardMobile> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('Mohon Lihat Website Dengan Mode Desktop'),
+        child: Text('Mohon gunakan mode desktop\natau peramban/browser di Komputer\nuntuk melihat website.'),
       ),
     );
   }
