@@ -16,4 +16,10 @@ class LahanPerKecamatan {
         lahansawah = map['lahansawah'],
         lahanpekarangan = map['lahanpekarangan'],
         lahantegal = map['lahantegal'];
+
+  LahanPerKecamatan.fromJsonL(Map<String, dynamic> map)
+      : kecamatan = map['kelurahan'],
+        lahansawah = map['lahansawah'],
+        lahanpekarangan = map['lahanpekarangan'],
+        lahantegal = map['lahantegal'];
 }

@@ -50,6 +50,47 @@ class ReportApi{
     }
   }
 
+  static Future<List<LahanPerKecamatan>> requestDetailedLahanPerKecamatan(String kecamatan) async {
+    final prefs = await SharedPreferences.getInstance();
+
+    final http.Response response = await http.get(
+      'http://apidinper.reboeng.com/api/dakota/dakotaLahanDetailedByKecamatan/$kecamatan',
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Authorization': 'Bearer ${prefs.getString('token')}'
+      },
+    );
+
+    if(response.statusCode == 200){
+      String content = response.body;
+      List group = jsonDecode(content);
+      print(group.toString());
+      return group.map((e) => LahanPerKecamatan.fromJsonL(e)).toList();
+    }else{
+      return [];
+    }
+  }
+
+  static Future<List<KelompokPerKecamatan>> requestDetailedKelompokPerKecamatan(String kecamatan) async {
+    final prefs = await SharedPreferences.getInstance();
+
+    final http.Response response = await http.get(
+      'http://apidinper.reboeng.com/api/dakota/detailedByKecamatan/$kecamatan',
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Authorization': 'Bearer ${prefs.getString('token')}'
+      },
+    );
+
+    if(response.statusCode == 200){
+      String content = response.body;
+      List group = jsonDecode(content);
+      return group.map((e) => KelompokPerKecamatan.fromJsonL(e)).toList();
+    }else{
+      return [];
+    }
+  }
+
 
   static Future<Map<String, dynamic>> requestTotalBantuanUsahaAll() async {
     final prefs = await SharedPreferences.getInstance();
@@ -224,6 +265,27 @@ class ReportApi{
       return int.parse(content);
     }else{
       return 0;
+    }
+
+  }
+
+  static Future<String> requestUserName() async {
+
+    final prefs = await SharedPreferences.getInstance();
+
+    final http.Response response = await http.get(
+      'http://apidinper.reboeng.com/api/account/showName',
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Authorization': 'Bearer ${prefs.getString('token')}'
+      },
+    );
+
+    if(response.statusCode == 200){
+      String content = response.body;
+      return content;
+    }else{
+      return '';
     }
 
   }

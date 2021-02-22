@@ -13,6 +13,7 @@ class HomeDashboardDesktop extends StatefulWidget {
 
 class _HomeDashboardDesktopState extends State<HomeDashboardDesktop> {
   int countGallery = 0, countDakota = 0, countPrintedGroup = 0, countPrintedField = 0, countGroup = 0, countAccount = 0, countUser = 0, countAdmin = 0;
+  String userName = '';
   ReportApi reportApi = ReportApi();
 
   Future getCount()async{
@@ -24,6 +25,7 @@ class _HomeDashboardDesktopState extends State<HomeDashboardDesktop> {
     int cAccount = await ReportApi.requestCountAccount();
     int cUser = await ReportApi.requestCountUser();
     int cAdmin = await ReportApi.requestCountAdmin();
+    String uName = await ReportApi.requestUserName();
 
     setState(() {
       countGallery = cGallery;
@@ -34,6 +36,7 @@ class _HomeDashboardDesktopState extends State<HomeDashboardDesktop> {
       countAccount = cAccount;
       countUser = cUser;
       countAdmin = cAdmin;
+      userName = uName;
     });
   }
 
@@ -61,7 +64,7 @@ class _HomeDashboardDesktopState extends State<HomeDashboardDesktop> {
       body: Consumer<BantuanUsahaViewModel>(
         builder:(_, bantuanUsaha, __) {
           return Center(
-            child: bantuanUsaha.category.isEmpty || countAdmin == 0 ? CircularProgressIndicator() : Padding(
+            child: bantuanUsaha.category.isEmpty || userName == '' ? CircularProgressIndicator() : Padding(
               padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.01),
               child: Row(
                 children: [
@@ -71,7 +74,7 @@ class _HomeDashboardDesktopState extends State<HomeDashboardDesktop> {
                   ),
                   Flexible(
                       flex: 9,
-                      child: NumericDashboard(countPrintedGroup: countPrintedGroup, countPrintedField: countPrintedField, countDakota: countDakota, countAccount: countAccount, countUser: countUser, countAdmin: countAdmin)
+                      child: NumericDashboard(userName: userName,countPrintedGroup: countPrintedGroup, countPrintedField: countPrintedField, countDakota: countGroup, countAccount: countAccount, countUser: countUser, countAdmin: countAdmin)
                   )
                 ],
               ),
@@ -92,6 +95,7 @@ class NumericDashboard extends StatelessWidget {
     @required this.countAccount,
     @required this.countUser,
     @required this.countAdmin,
+    @required this.userName
   }) : super(key: key);
 
   final int countPrintedGroup;
@@ -100,6 +104,7 @@ class NumericDashboard extends StatelessWidget {
   final int countAccount;
   final int countUser;
   final int countAdmin;
+  final String userName;
 
   @override
   Widget build(BuildContext context) {
@@ -111,26 +116,46 @@ class NumericDashboard extends StatelessWidget {
           SizedBox(height: MediaQuery.of(context).size.height * 0.03,),
           Text('Statistik Laporan', style: TextStyle(fontSize: 16),),
           SizedBox(height: MediaQuery.of(context).size.height * 0.04,),
-          Row(
-            children: [
-              InfoNumeric(numColor: Colors.deepPurple, titleColor: Colors.deepPurple.shade200, title: 'Informasi\nkelompok tercetak', value: countPrintedGroup.toString(),),
-              InfoNumeric(numColor: Colors.amber, titleColor: Colors.amber.shade200, title: 'Informasi\nlahan tercetak', value: countPrintedField.toString(),),
-              InfoNumeric(numColor: Colors.teal, titleColor: Colors.teal.shade200, title: 'Total kelompok\nterdata', value: countDakota.toString(),),
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 70),
-            child: Divider(
-              thickness: 1.5,
-              color: Colors.blueGrey,
+          Expanded(
+            flex: 4,
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    InfoNumeric(numColor: Colors.deepPurple, titleColor: Colors.deepPurple.shade200, title: 'Informasi\nkelompok tercetak', value: countPrintedGroup.toString(),),
+                    InfoNumeric(numColor: Colors.amber, titleColor: Colors.amber.shade200, title: 'Informasi\nlahan tercetak', value: countPrintedField.toString(),),
+                    InfoNumeric(numColor: Colors.teal, titleColor: Colors.teal.shade200, title: 'Total kelompok\nterdata', value: countDakota.toString(),),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 70),
+                  child: Divider(
+                    thickness: 1.5,
+                    color: Colors.blueGrey,
+                  ),
+                ),
+                Row(
+                  children: [
+                    InfoNumeric(numColor: Colors.red, titleColor: Colors.red.shade200, title: 'Total akun\nterdaftar', value: countAccount.toString(),),
+                    InfoNumeric(numColor: Colors.blueGrey, titleColor: Colors.blueGrey.shade200, title: 'Total akun penyuluh', value: countUser.toString(),),
+                    InfoNumeric(numColor: Colors.blueAccent, titleColor: Colors.blueAccent.shade200, title: 'Total akun admin', value: countAdmin.toString(),),
+                  ],
+                ),
+              ],
             ),
           ),
-          Row(
-            children: [
-              InfoNumeric(numColor: Colors.red, titleColor: Colors.red.shade200, title: 'Total akun\nterdaftar', value: countAccount.toString(),),
-              InfoNumeric(numColor: Colors.blueGrey, titleColor: Colors.blueGrey.shade200, title: 'Total akun penyuluh', value: countUser.toString(),),
-              InfoNumeric(numColor: Colors.blueAccent, titleColor: Colors.blueAccent.shade200, title: 'Total akun admin', value: countAdmin.toString(),),
-            ],
+          Expanded(
+            flex: 3,
+            child: Padding(
+              padding: EdgeInsets.only(right: MediaQuery.of(context).size.width * 0.03, bottom: MediaQuery.of(context).size.height * 0.05, top: MediaQuery.of(context).size.height * 0.05 ),
+              child: OnHoverGreetingsCard(
+                color: Color.fromRGBO(96,125,139,1),
+                projectName: 'Semoga Hari Anda Menyenangkan.',
+                percentComplete: 'Hai $userName !',
+                progressIndicatorColor: Color.fromRGBO(144,164,174,1),
+                icon: Icons.verified,
+              ),
+            ),
           ),
         ],
       ),
@@ -179,8 +204,23 @@ class StatisticDashboard extends StatelessWidget {
             padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03),
             child: Row(
               children: [
-                ExpandedInfo(onPressed: () {}, numValue: '$countDakota', title: 'total kelompok\nterdata oleh anda', numColor: Colors.deepOrange, titleColor: Colors.deepOrange.shade100,),
-                ExpandedInfo(onPressed: () {}, numValue: '$countGallery', title: 'total foto kegiatan\nditambahkan oleh anda', numColor: Colors.blue, titleColor: Colors.blue.shade100,),
+                OnHoverCard(
+                  color: Color(0xffFF4C60),
+                  projectName: 'total kelompok\nterdata oleh anda',
+                  percentComplete: '$countDakota',
+                  progressIndicatorColor: Colors.redAccent[100],
+                  icon: Icons.people_outline,
+                ),
+                SizedBox(width: MediaQuery.of(context).size.width * 0.02,),
+                OnHoverCard(
+                  color: Colors.blue,
+                  projectName: 'total foto kegiatan\nditambahkan\noleh anda',
+                  percentComplete: '$countGallery',
+                  progressIndicatorColor: Colors.blue.shade100,
+                  icon: Icons.add_photo_alternate_outlined,
+                ),
+                // ExpandedInfo(onPressed: () {}, numValue: '$countDakota', title: 'total kelompok\nterdata oleh anda', numColor: Colors.deepOrange, titleColor: Colors.deepOrange.shade100,),
+                // ExpandedInfo(onPressed: () {}, numValue: '$countGallery', title: 'total foto kegiatan\nditambahkan oleh anda', numColor: Colors.blue, titleColor: Colors.blue.shade100,),
               ],
             ),
           )

@@ -70,10 +70,10 @@ final kCategories = [
 ];
 
 final kNeumorphicColors = [
-  Color.fromRGBO(82, 98, 255, 1), //  rgb(82, 98, 255)
-  Color.fromRGBO(46, 198, 255, 1), // rgb(46, 198, 255)
-  Color.fromRGBO(123, 201, 82, 1), // rgb(123, 201, 82)
-  Color.fromRGBO(255, 171, 67, 1), // rgb(255, 171, 67)
-  Color.fromRGBO(252, 91, 57, 1), //  rgb(252, 91, 57)
-  Color.fromRGBO(139, 135, 130, 1), //rgb(139, 135, 130)
+  Color.fromRGBO(3,169,244, 1),// rgb(46, 198, 255)
+  Color.fromRGBO(0,150,136, 1), //  rgb(82, 98, 255)
+  Color.fromRGBO(255,193,7, 1), // rgb(255, 171, 67)
+  Color.fromRGBO(236,64,122, 1), // rgb(123, 201, 82)
+  Color.fromRGBO(103,58,183, 1),//  rgb(252, 91, 57)
+  Color.fromRGBO(96,125,139, 1), //rgb(139, 135, 130)
 ];

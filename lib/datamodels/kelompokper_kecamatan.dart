@@ -28,4 +28,14 @@ class KelompokPerKecamatan {
         ternak = map['ternak'],
         perikanan = map['perikanan'],
         lainnya = map['lainnya'];
+
+  KelompokPerKecamatan.fromJsonL(Map<String, dynamic> map)
+      : kecamatan = map['kelurahan'],
+        totalkelompok = map['totalkelompok'],
+        alsintan = map['alsintan'],
+        sarpras = map['sarpras'],
+        bibit = map['bibit'],
+        ternak = map['ternak'],
+        perikanan = map['perikanan'],
+        lainnya = map['lainnya'];
 }

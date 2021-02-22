@@ -39,6 +39,7 @@ dependencies:
   pdf: ^2.1.0
   downloads_path_provider: ^0.1.0
   printing: ^4.1.0
+  flutter_bloc: ^0.20.1
 
 dev_dependencies:
   flutter_test:
