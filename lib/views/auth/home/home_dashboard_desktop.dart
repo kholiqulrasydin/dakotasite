@@ -68,11 +68,11 @@ class _HomeDashboardDesktopState extends State<HomeDashboardDesktop> {
               padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.01),
               child: Row(
                 children: [
-                  Flexible(
+                  Expanded(
                       flex: 7,
                       child: StatisticDashboard(countDakota: countDakota, countGallery: countGallery)
                   ),
-                  Flexible(
+                  Expanded(
                       flex: 9,
                       child: NumericDashboard(userName: userName,countPrintedGroup: countPrintedGroup, countPrintedField: countPrintedField, countDakota: countGroup, countAccount: countAccount, countUser: countUser, countAdmin: countAdmin)
                   )
@@ -117,7 +117,6 @@ class NumericDashboard extends StatelessWidget {
           Text('Statistik Laporan', style: TextStyle(fontSize: 16),),
           SizedBox(height: MediaQuery.of(context).size.height * 0.04,),
           Expanded(
-            flex: 4,
             child: Column(
               children: [
                 Row(
@@ -145,7 +144,6 @@ class NumericDashboard extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: 3,
             child: Padding(
               padding: EdgeInsets.only(right: MediaQuery.of(context).size.width * 0.03, bottom: MediaQuery.of(context).size.height * 0.05, top: MediaQuery.of(context).size.height * 0.05 ),
               child: OnHoverGreetingsCard(
@@ -184,13 +182,14 @@ class StatisticDashboard extends StatelessWidget {
           child: Text('Total Bantuan Usaha Terdata', style: TextStyle(fontSize: 18),),
         ),
         Expanded(
-          flex: 4,
-          child: Row(
-            children: [
-              Container(width: MediaQuery.of(context).size.width * 0.2, height: MediaQuery.of(context).size.width * 0.2, child: Consumer<BantuanUsahaViewModel>(builder: (_, viewModel, __) => PieChartView(categoryData: viewModel.category,))),
-              SizedBox(width: MediaQuery.of(context).size.width * 0.02,),
-              CategoriesRow()
-            ],
+          child: Container(
+            child: Row(
+              children: [
+                Consumer<BantuanUsahaViewModel>(builder: (_, viewModel, __) => PieChartView(categoryData: viewModel.category,)),
+                SizedBox(width: MediaQuery.of(context).size.width * 0.02,),
+                CategoriesRow()
+              ],
+            ),
           ),
         ),
         SizedBox(height: MediaQuery.of(context).size.height * 0.03),
@@ -199,7 +198,6 @@ class StatisticDashboard extends StatelessWidget {
           child: Text('Statistik Anda', style: TextStyle(fontSize: 16),),
         ),
         Expanded(
-          flex: 3,
           child: Padding(
             padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03),
             child: Row(

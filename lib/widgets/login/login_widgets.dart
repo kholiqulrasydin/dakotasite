@@ -13,6 +13,9 @@ class _LoginWidgetsState extends State<LoginWidgets> {
   FToast fToast;
   bool onAsync;
 
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
   @override
   void initState() {
     // TODO: implement initState
@@ -53,9 +56,6 @@ class _LoginWidgetsState extends State<LoginWidgets> {
 
     Size size = MediaQuery.of(context).size;
 
-    TextEditingController emailController = new TextEditingController();
-    TextEditingController passwordController = new TextEditingController();
-
     return Padding(
       padding: EdgeInsets.all(size.height > 770 ? 64 : size.height > 670 ? 32 : 16),
       child: Center(
@@ -72,9 +72,10 @@ class _LoginWidgetsState extends State<LoginWidgets> {
             width: 500,
             color: Colors.white,
             child: Center(
-              child: onAsync ? CircularProgressIndicator() : SingleChildScrollView(
-                child: Padding(
-                  padding: EdgeInsets.all(40),
+              child: onAsync ? CircularProgressIndicator() : Padding(
+                padding: EdgeInsets.all(40),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -104,31 +105,31 @@ class _LoginWidgetsState extends State<LoginWidgets> {
                       ),
 
                       TextField(
-                        controller: emailController,
-                        decoration: InputDecoration(
-                          labelText: 'Email',
-                          suffixIcon: Icon(
-                            Icons.mail_outline,
+                          controller: emailController,
+                          decoration: InputDecoration(
+                            labelText: 'Email',
+                            suffixIcon: Icon(
+                              Icons.mail_outline,
+                            ),
                           ),
+                          autocorrect: true,
+                          keyboardType: TextInputType.emailAddress,
                         ),
-                        autocorrect: true,
-                        keyboardType: TextInputType.emailAddress,
-                      ),
 
                       SizedBox(
                         height: 32,
                       ),
 
                       TextField(
-                        controller: passwordController,
-                        decoration: InputDecoration(
-                          labelText: 'Password',
-                          suffixIcon: Icon(
-                            Icons.lock_outline,
+                          controller: passwordController,
+                          decoration: InputDecoration(
+                            labelText: 'Password',
+                            suffixIcon: Icon(
+                              Icons.lock_outline,
+                            ),
                           ),
+                          obscureText: true,
                         ),
-                        obscureText: true,
-                      ),
 
                       SizedBox(
                         height: 64,
