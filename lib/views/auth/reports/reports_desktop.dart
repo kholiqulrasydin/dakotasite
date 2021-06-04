@@ -166,7 +166,7 @@ class SecondContainerReportSecondary extends StatelessWidget {
                             color: Colors.white,
                           ),
                           onPressed: () {
-                            _reportSecondaryBloc.dispatch(ReportSecondaryState.disable);
+                            _reportSecondaryBloc.add(ReportSecondaryState.disable);
                           }),
                     ),
                   ],
@@ -331,7 +331,7 @@ class FirstContainerReportSecondary extends StatelessWidget {
                             color: Colors.white,
                           ),
                           onPressed: () {
-                            _reportSecondaryBloc.dispatch(ReportSecondaryState.enable);
+                            _reportSecondaryBloc.add(ReportSecondaryState.enable);
                           }),
                     ),
                   ],
@@ -426,7 +426,7 @@ class SecondContainerReportPrimary extends StatelessWidget {
                             color: Colors.white,
                           ),
                           onPressed: () {
-                            _reportPrimaryBloc.dispatch(ReportPrimaryState.enable);
+                            _reportPrimaryBloc.add(ReportPrimaryState.enable);
                           }),
                     ),
                   ],
@@ -521,7 +521,7 @@ class FirstContainerReportPrimary extends StatelessWidget {
                             color: Colors.white,
                           ),
                           onPressed: () {
-                            _reportPrimaryBloc.dispatch(ReportPrimaryState.disable);
+                            _reportPrimaryBloc.add(ReportPrimaryState.disable);
                           }),
                     ),
                   ],

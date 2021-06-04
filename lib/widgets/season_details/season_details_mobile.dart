@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:provider_architecture/provider_architecture.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-import 'package:dakotawebsite/datamodels/season_details_model.dart';
 import 'package:dakotawebsite/styles/text_styles.dart';
 
-class SeasonDetailsMobile extends ProviderWidget<SeasonDetailsModel> {
+class SeasonDetailsMobile extends StatelessWidget {
+  final dynamic details;
+  SeasonDetailsMobile(this.details);
+
   @override
-  Widget build(BuildContext context, SeasonDetailsModel details) {
+  Widget build(BuildContext context) {
     return ResponsiveBuilder(
       builder: (context, sizingInformation) => Column(
         children: <Widget>[

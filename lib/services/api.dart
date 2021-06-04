@@ -5,10 +5,10 @@ import 'package:dakotawebsite/datamodels/episode_item_model.dart';
 
 class Api {
   static const String _apiEndpoint =
-      'http://apidinper.reboeng.com/api/galleryNoAuth';
+      'https://simentan.ponorogo.go.id/api/public/api/galleryNoAuth';
 
   Future<dynamic> getEpisodes() async {
-    var response = await http.get(_apiEndpoint);
+    var response = await http.get(Uri.parse(_apiEndpoint));
 
     if (response.statusCode == 200) {
       var episodes = (json.decode(response.body) as List)

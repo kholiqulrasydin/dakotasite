@@ -1,4 +1,5 @@
 import 'package:dakotawebsite/viewmodels/bantuan_usaha_view_model.dart';
+import 'package:dakotawebsite/viewmodels/episodes_view_model.dart';
 import 'package:dakotawebsite/viewmodels/report_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,12 +30,13 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => WebMode()),
         ChangeNotifierProvider(create: (context) => ReportViewModel()),
-        ChangeNotifierProvider(create: (context) => BantuanUsahaViewModel())
+        ChangeNotifierProvider(create: (context) => BantuanUsahaViewModel()),
+        ChangeNotifierProvider(create: (context) => EpisodesViewModel())
       ],
       child: MultiBlocProvider(
         providers: [
-          BlocProvider<ReportPrimaryBloc>(builder: (context) => ReportPrimaryBloc()),
-          BlocProvider<ReportSecondaryBloc>(builder: (context) => ReportSecondaryBloc()),
+          BlocProvider<ReportPrimaryBloc>(create: (context) => ReportPrimaryBloc(true)),
+          BlocProvider<ReportSecondaryBloc>(create: (context) => ReportSecondaryBloc(false)),
         ],
         child: MaterialApp(
           title: 'SIMENTAN',

@@ -192,8 +192,9 @@ class ReportViewModel extends ChangeNotifier {
 }
 
 class ReportPrimaryBloc extends Bloc<ReportPrimaryState, bool>{
+  ReportPrimaryBloc(bool initialState) : super(initialState);
 
-  @override
+
   bool get initialState => true;
 
   @override
@@ -204,8 +205,8 @@ class ReportPrimaryBloc extends Bloc<ReportPrimaryState, bool>{
 }
 
 class ReportSecondaryBloc extends Bloc<ReportSecondaryState, bool>{
+  ReportSecondaryBloc(bool initialState) : super(initialState);
 
-  @override
   bool get initialState => false;
 
   @override

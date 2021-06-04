@@ -10,7 +10,7 @@ class ApiService {
     final prefs = await SharedPreferences.getInstance();
 
     final http.Response response = await http.post(
-        'http://apidinper.reboeng.com/api/login',
+        Uri.parse('https://simentan.ponorogo.go.id/api/public/api/login'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Accept': 'application/json',
@@ -44,7 +44,7 @@ class ApiService {
     print('Loging Out API');
     final prefs = await SharedPreferences.getInstance();
     final http.Response response = await http.post(
-      'http://apidinper.reboeng.com/api/logout',
+      Uri.parse('https://simentan.ponorogo.go.id/api/public/api/logout'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': 'Bearer ${prefs.getString('token')}'
@@ -67,7 +67,7 @@ class ApiService {
     final prefs = await SharedPreferences.getInstance();
     bool ok;
     await http.get(
-        'http://apidinper.reboeng.com/api/account/getUser',
+        Uri.parse('https://simentan.ponorogo.go.id/api/public/api/account/getUser'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
           'Authorization': 'Bearer ${prefs.getString('token')}'

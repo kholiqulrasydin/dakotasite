@@ -12,7 +12,7 @@ class ReportApi{
     final prefs = await SharedPreferences.getInstance();
 
     final http.Response response = await http.get(
-      'http://apidinper.reboeng.com/api/dakota/groupByKecamatan',
+      Uri.parse('https://simentan.ponorogo.go.id/api/public/api/dakota/groupByKecamatan'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': 'Bearer ${prefs.getString('token')}'
@@ -34,7 +34,7 @@ class ReportApi{
     final prefs = await SharedPreferences.getInstance();
 
     final http.Response response = await http.get(
-      'http://apidinper.reboeng.com/api/dakota/dakotaLahanGroupByKecamatan',
+      Uri.parse('https://simentan.ponorogo.go.id/api/public/api/dakota/dakotaLahanGroupByKecamatan'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': 'Bearer ${prefs.getString('token')}'
@@ -54,7 +54,7 @@ class ReportApi{
     final prefs = await SharedPreferences.getInstance();
 
     final http.Response response = await http.get(
-      'http://apidinper.reboeng.com/api/dakota/dakotaLahanDetailedByKecamatan/$kecamatan',
+      Uri.parse('https://simentan.ponorogo.go.id/api/public/api/dakota/dakotaLahanDetailedByKecamatan/$kecamatan'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': 'Bearer ${prefs.getString('token')}'
@@ -75,7 +75,7 @@ class ReportApi{
     final prefs = await SharedPreferences.getInstance();
 
     final http.Response response = await http.get(
-      'http://apidinper.reboeng.com/api/dakota/detailedByKecamatan/$kecamatan',
+      Uri.parse('https://simentan.ponorogo.go.id/api/public/api/dakota/detailedByKecamatan/$kecamatan'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': 'Bearer ${prefs.getString('token')}'
@@ -96,7 +96,7 @@ class ReportApi{
     final prefs = await SharedPreferences.getInstance();
 
     final http.Response response = await http.get(
-      'http://apidinper.reboeng.com/api/bantuanusaha/countdata',
+      Uri.parse('https://simentan.ponorogo.go.id/api/public/api/bantuanusaha/countdata'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': 'Bearer ${prefs.getString('token')}'
@@ -117,7 +117,7 @@ class ReportApi{
     final prefs = await SharedPreferences.getInstance();
 
     final http.Response response = await http.get(
-      'http://apidinper.reboeng.com/api/dakota/dakotaCountCreatedBy',
+      Uri.parse('https://simentan.ponorogo.go.id/api/public/api/dakota/dakotaCountCreatedBy'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': 'Bearer ${prefs.getString('token')}'
@@ -136,7 +136,7 @@ class ReportApi{
     final prefs = await SharedPreferences.getInstance();
 
     final http.Response response = await http.get(
-      'http://apidinper.reboeng.com/api/gallery/galleryCountByUser',
+      Uri.parse('https://simentan.ponorogo.go.id/api/public/api/gallery/galleryCountByUser'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': 'Bearer ${prefs.getString('token')}'
@@ -155,7 +155,7 @@ class ReportApi{
     final prefs = await SharedPreferences.getInstance();
 
     return await http.get(
-      'http://apidinper.reboeng.com/api/webstats/onAction/$action',
+      Uri.parse('https://simentan.ponorogo.go.id/api/public/api/webstats/onAction/$action'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': 'Bearer ${prefs.getString('token')}'
@@ -169,7 +169,7 @@ class ReportApi{
     final prefs = await SharedPreferences.getInstance();
 
     final http.Response response = await http.get(
-      'http://apidinper.reboeng.com/api/webstats/$action',
+      Uri.parse('https://simentan.ponorogo.go.id/api/public/api/webstats/$action'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': 'Bearer ${prefs.getString('token')}'
@@ -190,7 +190,7 @@ class ReportApi{
     final prefs = await SharedPreferences.getInstance();
 
     final http.Response response = await http.get(
-      'http://apidinper.reboeng.com/api/dakota/countall',
+      Uri.parse('https://simentan.ponorogo.go.id/api/public/api/dakota/countall'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': 'Bearer ${prefs.getString('token')}'
@@ -211,7 +211,7 @@ class ReportApi{
     final prefs = await SharedPreferences.getInstance();
 
     final http.Response response = await http.get(
-      'http://apidinper.reboeng.com/api/account/countUser',
+      Uri.parse('https://simentan.ponorogo.go.id/api/public/api/account/countUser'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': 'Bearer ${prefs.getString('token')}'
@@ -232,7 +232,7 @@ class ReportApi{
     final prefs = await SharedPreferences.getInstance();
 
     final http.Response response = await http.get(
-      'http://apidinper.reboeng.com/api/account/countAdmin',
+      Uri.parse('https://simentan.ponorogo.go.id/api/public/api/account/countAdmin'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': 'Bearer ${prefs.getString('token')}'
@@ -253,7 +253,7 @@ class ReportApi{
     final prefs = await SharedPreferences.getInstance();
 
     final http.Response response = await http.get(
-      'http://apidinper.reboeng.com/api/account/countTotal',
+      Uri.parse('https://simentan.ponorogo.go.id/api/public/api/account/countTotal'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': 'Bearer ${prefs.getString('token')}'
@@ -274,7 +274,7 @@ class ReportApi{
     final prefs = await SharedPreferences.getInstance();
 
     final http.Response response = await http.get(
-      'http://apidinper.reboeng.com/api/account/showName',
+      Uri.parse('https://simentan.ponorogo.go.id/api/public/api/account/showName'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': 'Bearer ${prefs.getString('token')}'

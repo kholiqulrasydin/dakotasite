@@ -11,12 +11,9 @@ class SeasonDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Provider.value(
-      value: details,
-      child: ScreenTypeLayout(
-        desktop: SeasonDetailsDesktop(),
-        mobile: SeasonDetailsMobile(),
-      ),
+    return ScreenTypeLayout(
+      desktop: SeasonDetailsDesktop(details),
+      mobile: SeasonDetailsMobile(details),
     );
   }
 }

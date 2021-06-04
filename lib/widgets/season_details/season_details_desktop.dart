@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:provider_architecture/provider_architecture.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-import 'package:dakotawebsite/datamodels/season_details_model.dart';
 import 'package:dakotawebsite/styles/text_styles.dart';
 
-class SeasonDetailsDesktop extends ProviderWidget<SeasonDetailsModel> {
+class SeasonDetailsDesktop extends StatelessWidget {
+  final dynamic details;
+  SeasonDetailsDesktop(this.details);
+
   @override
-  Widget build(BuildContext context, SeasonDetailsModel details) {
+  Widget build(BuildContext context) {
     return ResponsiveBuilder(
       builder: (context, sizingInformation) => Row(
         mainAxisSize: MainAxisSize.max,

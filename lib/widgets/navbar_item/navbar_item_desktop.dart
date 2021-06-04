@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:provider_architecture/provider_architecture.dart';
-import 'package:dakotawebsite/datamodels/navbar_item_model.dart';
 
-class NavBarItemTabletDesktop extends ProviderWidget<NavBarItemModel> {
+class NavBarItemTabletDesktop extends StatelessWidget {
+  final dynamic model;
+  NavBarItemTabletDesktop(this.model);
+
   @override
-  Widget build(BuildContext context, NavBarItemModel model) {
+  Widget build(BuildContext context) {
     return Text(
       model.title,
       style: TextStyle(fontSize: 18),
